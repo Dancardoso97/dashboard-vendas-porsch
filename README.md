@@ -1,64 +1,123 @@
 # Dashboard de Vendas Porsche
 
-Dashboard interativa para explorar registros de vendas Porsche. O projeto é uma página estática feita com HTML, CSS e JavaScript, sem dependências externas ou processo de build.
+Dashboard interativa para explorar 100 registros de vendas Porsche. A aplicação é uma página estática em HTML, CSS e JavaScript, com filtros, indicadores, gráficos de barras e tabela detalhada.
 
-## Acesse a dashboard
+## Links do projeto
 
-**[Abrir Dashboard de Vendas Porsche](https://dancardoso97.github.io/dashboard-vendas-porsch/)**
+- **Dashboard publicada:** https://dancardoso97.github.io/dashboard-vendas-porsch/
+- **Repositório público:** https://github.com/Dancardoso97/dashboard-vendas-porsch
 
-## Sobre o projeto
+## 1. Perguntas de negócio
 
-A dashboard apresenta uma visão executiva dos registros de vendas, com indicadores, gráficos e tabela detalhada. Os dados são carregados a partir de uma estrutura JavaScript incorporada ao próprio arquivo `index.html` e processados localmente no navegador.
+A dashboard foi organizada para responder a três perguntas:
 
-### Indicadores
+1. **Qual modelo Porsche tem mais registros de venda?** A contagem por modelo ajuda a identificar quais modelos aparecem com maior frequência na base e pode apoiar conversas sobre demanda e planejamento de estoque.
+2. **Qual modelo apresenta a maior receita registrada?** A soma dos preços por modelo permite comparar o valor financeiro registrado para cada modelo. É uma métrica de receita bruta registrada, não de lucro.
+3. **Qual método de pagamento aparece com maior frequência?** A contagem por forma de pagamento ajuda a entender como os compradores registrados na base pagaram e pode apoiar análises operacionais.
 
-- Quantidade de vendas no recorte selecionado.
-- Receita registrada, calculada pela soma dos preços de venda.
-- Preço médio dos registros com preço válido.
+As perguntas foram escolhidas porque cobrem três dimensões complementares: volume, valor e comportamento de pagamento. Os resultados são recalculados conforme os filtros.
 
-### Análises e filtros
+## 2. Funcionalidades e filtros
 
-Os filtros permitem analisar os registros por:
+A dashboard oferece filtros por:
 
 - Modelo Porsche.
 - Estado.
 - Ano-modelo.
 - Método de pagamento.
 
-Os gráficos apresentam vendas por modelo, receita por modelo e frequência dos métodos de pagamento. A dashboard também destaca o modelo com mais registros, o modelo com maior receita e o método de pagamento mais utilizado.
+Também apresenta três indicadores — quantidade de registros, receita registrada e preço médio —, gráficos de vendas por modelo, receita por modelo e métodos de pagamento, respostas em destaque e uma tabela detalhada. O botão **Limpar filtros** restaura a visão completa.
 
-> **Nota:** receita registrada não é o mesmo que lucro. Para calcular lucro, seria necessário incluir os custos. Os totais consideram os registros presentes na base, inclusive registros com status pendente ou cancelado. A tabela exibe até 300 registros por vez.
+## 3. Prompt de referência e refinamentos
 
-## Tecnologias utilizadas
+O histórico literal do prompt que originou a primeira versão da dashboard não está armazenado neste repositório. Para transparência e reprodutibilidade, o texto abaixo é uma **reconstrução do briefing compatível com a versão final**, e não uma transcrição comprovada do prompt original:
 
-- **HTML5** — estrutura da página.
-- **CSS3** — layout, tema visual e responsividade.
-- **JavaScript** — filtros, cálculos, indicadores, gráficos e tabela.
-- **GitHub Pages** — hospedagem estática do site.
+> Crie uma dashboard interativa de vendas Porsche em um único arquivo HTML, usando os registros da base fornecida. Antes de construir os gráficos, identifique perguntas de negócio relevantes. A dashboard deve responder: (1) qual modelo tem mais registros de venda; (2) qual modelo apresenta a maior receita registrada; e (3) qual método de pagamento é mais frequente. Inclua indicadores de quantidade de registros, soma dos preços e preço médio; filtros por modelo, estado, ano-modelo e método de pagamento; gráficos de barras; uma tabela detalhada; botão para limpar os filtros; layout responsivo e identidade visual escura inspirada no universo automotivo premium. Faça os indicadores e gráficos reagirem aos filtros no navegador, sem backend ou dependências externas. Não exiba nomes, e-mails ou telefones de compradores ou vendedores. Informe que receita registrada não equivale a lucro.
 
-Não é necessário instalar bibliotecas, frameworks ou pacotes para executar esta versão.
+### O que foi refinado na versão final
 
-## Estrutura do projeto
+A partir do escopo refletido no código atual, a versão final contempla:
+
+- Três perguntas de negócio explícitas na abertura da página.
+- Quatro filtros interativos (modelo, estado, ano-modelo e pagamento).
+- Atualização conjunta dos KPIs, gráficos, respostas em destaque e tabela.
+- Botão para limpar todos os filtros.
+- Formatação dos valores em dólares americanos (USD).
+- Nota metodológica esclarecendo que receita não é lucro e que os totais incluem todos os status presentes na base.
+- Layout responsivo e dados incorporados ao HTML para execução estática.
+
+**Limite do registro:** como não há histórico de conversas de geração nem versões intermediárias no repositório, não é possível afirmar quantos prompts foram usados ou listar alterações literais entre cada tentativa. Os itens acima descrevem o escopo e os refinamentos observáveis no artefato final.
+
+## 4. Tratamento e conferência da base
+
+O repositório contém a base já incorporada como dados estruturados em JavaScript no arquivo `index.html`. O arquivo original da planilha e um script separado de preparação não estão incluídos; portanto, não é possível reconstruir com segurança todas as etapas feitas antes de os dados chegarem ao HTML.
+
+Na inspeção da base incorporada, foram observados:
+
+- **100 registros** e **10 campos**: ID da venda, data da venda, modelo, ano-modelo, preço, quilometragem, método de pagamento, cidade, estado e status da entrega.
+- **24 datas em branco**. Esses registros foram mantidos; não foi inventada uma data para preenchê-los.
+- **Nenhum ID duplicado** na base examinada.
+- Preços armazenados como valores numéricos em USD e quilometragem em milhas.
+- Nenhuma coluna com nome, e-mail, telefone, CPF ou CNPJ de comprador ou vendedor.
+
+### Cuidados de interpretação
+
+- A contagem da dashboard considera os registros existentes, inclusive status pendentes e cancelados.
+- Receita registrada é a soma dos preços informados; não representa lucro nem necessariamente receita liquidada.
+- O preço médio é calculado sobre os registros do recorte que possuem preço numérico.
+- Datas em branco não são usadas para inferir períodos.
+- Como os dados estão dentro do HTML, qualquer informação publicada nesse arquivo fica acessível a quem visitar o repositório ou a página. Não acrescente dados pessoais ou confidenciais.
+
+## 5. Ferramentas de IA e fluxo de trabalho
+
+Nesta etapa de documentação e publicação, foi utilizado o **ChatGPT com a integração do GitHub** para inspecionar os arquivos do repositório e atualizar este README.
+
+Não foi utilizado Canvas nem um agente personalizado com skill para realizar essa etapa de documentação/publicação. O repositório, por si só, não registra de forma verificável qual ferramenta ou modo foi usado na criação original do HTML; por isso, não atribuo retrospectivamente a geração da dashboard ao Canvas ou a um agente específico.
+
+## 6. Exemplo de filtro para demonstrar a interação
+
+Para produzir uma evidência reproduzível da dashboard:
+
+1. Abra a dashboard publicada.
+2. No filtro **Modelo**, selecione `911 Turbo S`.
+3. Em **Estado**, selecione `WA`.
+4. Em **Ano-modelo**, selecione `2024`.
+5. Em **Pagamento**, selecione `Wire Transfer`.
+
+Na base atual, essa combinação deve retornar um registro: uma venda de 911 Turbo S em Seattle, Washington, ano-modelo 2024, com preço registrado de **US$ 235.000**. Os indicadores devem mostrar 1 registro, receita de US$ 235.000 e preço médio de US$ 235.000.
+
+Use esse cenário para tirar uma captura de tela com os filtros e os indicadores visíveis. A captura deve ser feita no navegador, na dashboard publicada, para servir como evidência visual real. **Nenhuma captura de tela foi incluída neste repositório até o momento.**
+
+## 7. Tecnologias
+
+- **HTML5:** estrutura da página.
+- **CSS3:** identidade visual, organização dos componentes e responsividade.
+- **JavaScript:** filtros, agregações, KPIs, gráficos e tabela.
+- **GitHub Pages:** hospedagem estática.
+
+A versão atual não depende de bibliotecas externas, backend ou processo de build.
+
+## 8. Estrutura do repositório
 
 ```text
 dashboard-vendas-porsch/
 ├── index.html   # Dashboard, estilos, lógica e dados incorporados
-└── README.md    # Documentação do projeto
+└── README.md    # Documentação, metodologia e instruções
 ```
 
-## Como executar localmente
+Todos os arquivos listados acima existem na raiz do repositório.
 
-### Opção 1 — Abrir diretamente
+## 9. Como executar localmente
 
-1. Faça o download ou clone este repositório.
+### Abrir diretamente
+
+1. Clone ou baixe o repositório.
 2. Abra o arquivo `index.html` em um navegador atualizado.
-3. Utilize os filtros para explorar os dados.
+3. Use os filtros para explorar os dados.
 
-### Opção 2 — Usar um servidor local
+### Usar um servidor local (opcional)
 
-Se preferir servir a página por HTTP:
-
-1. Instale o [Python 3](https://www.python.org/) caso ainda não esteja instalado.
+1. Instale o Python 3.
 2. Abra o terminal na pasta do projeto.
 3. Execute:
 
@@ -66,37 +125,33 @@ Se preferir servir a página por HTTP:
    python -m http.server 8000
    ```
 
-4. Acesse [http://localhost:8000](http://localhost:8000) no navegador.
-5. Para encerrar o servidor, pressione `Ctrl + C` no terminal.
+4. Acesse http://localhost:8000.
+5. Para encerrar, pressione `Ctrl + C`.
 
-## Como publicar ou atualizar no GitHub Pages
+## 10. Publicação no GitHub Pages
 
-O repositório é público e a publicação utiliza o GitHub Pages. Para configurar a publicação a partir da branch principal:
+O projeto está associado ao repositório público e ao endereço de Pages indicado no início deste README.
 
-1. Acesse [o repositório no GitHub](https://github.com/Dancardoso97/dashboard-vendas-porsch).
-2. Abra **Settings**.
-3. No menu lateral, selecione **Pages**.
-4. Em **Build and deployment**, escolha **Deploy from a branch** como fonte, se essa opção estiver disponível.
-5. Em **Branch**, selecione `main` e a pasta `/ (root)`.
-6. Clique em **Save**.
-7. Aguarde a conclusão da publicação. O endereço do site será:
-   [https://dancardoso97.github.io/dashboard-vendas-porsch/](https://dancardoso97.github.io/dashboard-vendas-porsch/).
+Para conferir ou configurar a publicação:
 
-### Atualizar a dashboard
+1. Abra https://github.com/Dancardoso97/dashboard-vendas-porsch.
+2. Acesse **Settings → Pages**.
+3. Em **Build and deployment**, confira a origem de publicação.
+4. Se estiver usando publicação por branch, selecione `main` e `/(root)`.
+5. Salve, se tiver feito alguma alteração, e aguarde o deploy.
+6. Abra https://dancardoso97.github.io/dashboard-vendas-porsch/ para conferir a página.
 
-1. Edite o arquivo `index.html` mantendo os caminhos e a estrutura necessários.
-2. Envie as alterações para a branch `main` (por exemplo, usando **Add file → Upload files** no GitHub).
-3. Aguarde o GitHub Pages publicar a nova versão.
-4. Recarregue o endereço público para conferir a atualização.
+Para atualizar a dashboard, altere `index.html` e envie o commit para a branch `main`. O GitHub Pages publicará a nova versão conforme a configuração do repositório.
 
-## Repositório
+## 11. Checklist antes da entrega
 
-[Código-fonte no GitHub](https://github.com/Dancardoso97/dashboard-vendas-porsch)
+- [ ] Abrir o link do GitHub Pages e testar os quatro filtros.
+- [ ] Aplicar o exemplo de filtro desta documentação.
+- [ ] Tirar uma captura de tela real com filtros e KPIs visíveis.
+- [ ] Anexar a captura ao repositório e inserir a imagem nesta documentação.
+- [ ] Conferir se não há dados pessoais ou confidenciais no HTML.
+- [ ] Enviar o link do repositório como endereço do código e o link do Pages como demonstração.
 
-## Observações sobre os dados
+## Sobre o projeto
 
-Os dados da dashboard estão incorporados ao arquivo `index.html` e são disponibilizados ao navegador de quem acessa o site. Não inclua informações pessoais, confidenciais ou dados que não possam ser publicados em um repositório público. A dashboard não envia os dados a um servidor: o processamento dos filtros e indicadores ocorre no navegador.
-
----
-
-Projeto publicado com GitHub Pages.
+Projeto de análise e visualização de dados de vendas Porsche. Não possui vínculo oficial com a Porsche.
