@@ -86,7 +86,13 @@ Para produzir uma evidência reproduzível da dashboard:
 
 Na base atual, essa combinação deve retornar um registro: uma venda de 911 Turbo S em Seattle, Washington, ano-modelo 2024, com preço registrado de **US$ 235.000**. Os indicadores devem mostrar 1 registro, receita de US$ 235.000 e preço médio de US$ 235.000.
 
-Use esse cenário para tirar uma captura de tela com os filtros e os indicadores visíveis. A captura deve ser feita no navegador, na dashboard publicada, para servir como evidência visual real. **Nenhuma captura de tela foi incluída neste repositório até o momento.**
+### Evidência visual da interação
+
+A captura abaixo foi enviada ao repositório e mostra a dashboard aberta no GitHub Pages com os quatro filtros aplicados (`911 Turbo S`, `WA`, `2024` e `Wire Transfer`). Os indicadores exibem 1 registro, receita de US$ 235.000 e preço médio de US$ 235.000.
+
+![Dashboard Porsche com filtros aplicados](<Captura de tela 2026-11-09 021644.png>)
+
+[Ver arquivo original da captura no GitHub](<https://github.com/Dancardoso97/dashboard-vendas-porsch/blob/main/Captura%20de%20tela%202026-11-09%20021644.png>)
 
 ## 7. Tecnologias
 
@@ -101,11 +107,12 @@ A versão atual não depende de bibliotecas externas, backend ou processo de bui
 
 ```text
 dashboard-vendas-porsch/
-├── index.html   # Dashboard, estilos, lógica e dados incorporados
-└── README.md    # Documentação, metodologia e instruções
+├── index.html                              # Dashboard, estilos, lógica e dados incorporados
+├── README.md                               # Documentação, metodologia e instruções
+└── Captura de tela 2026-11-09 021644.png  # Evidência visual dos filtros aplicados
 ```
 
-Todos os arquivos listados acima existem na raiz do repositório.
+Todos os arquivos listados acima existem na raiz do repositório. A captura é incorporada nesta documentação para comprovar visualmente um cenário de filtro aplicado.
 
 ## 9. Como executar localmente
 
@@ -147,8 +154,8 @@ Para atualizar a dashboard, altere `index.html` e envie o commit para a branch `
 
 - [ ] Abrir o link do GitHub Pages e testar os quatro filtros.
 - [ ] Aplicar o exemplo de filtro desta documentação.
-- [ ] Tirar uma captura de tela real com filtros e KPIs visíveis.
-- [ ] Anexar a captura ao repositório e inserir a imagem nesta documentação.
+- [x] Tirar uma captura de tela real com filtros e KPIs visíveis.
+- [x] Anexar a captura ao repositório e inserir a imagem nesta documentação.
 - [ ] Conferir se não há dados pessoais ou confidenciais no HTML.
 - [ ] Enviar o link do repositório como endereço do código e o link do Pages como demonstração.
 
